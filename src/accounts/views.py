@@ -1,4 +1,4 @@
-from flask import Blueprint
+from flask import Blueprint, render_template
 
 #defining blueprints for accounts related content
 accounts = Blueprint('accounts', __name__)
