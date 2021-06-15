@@ -4,23 +4,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}{% endblock title %}</title>
+    <link rel="stylesheet" src="{{ url_for('static', filename='accounts.css') }}">
+    <title>Document</title>
 </head>
-<!-- This snippet uses Font Awesome 5 Free as a dependency. You can download it at fontawesome.io! -->
-
 <body>
     <div class="container">
-      <div class="row">
-        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
-          <div class="card card-signin my-5">
-            <div class="card-body">
-              <h5 class="card-title text-center">Sign In</h5>
-                    {% block content %}{% endblock content %}
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <form onsubmit="event.preventDefault()" class="box">
+                        <h1>Login</h1>
+                        <p class="text-muted"> Please enter your login and password!</p> <input type="text" name="" placeholder="Username"> <input type="password" name="" placeholder="Password"> <a class="forgot text-muted" href="#">Forgot password?</a> <input type="submit" name="" value="Login" href="#">
+                        <div class="col-md-12">
+                            <ul class="social-network social-circle">
+                                <li><a href="#" class="icoFacebook" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#" class="icoTwitter" title="Twitter"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#" class="icoGoogle" title="Google +"><i class="fab fa-google-plus"></i></a></li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-  </body>
-  
+    </div>   
+</body>
 </html>
