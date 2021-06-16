@@ -6,4 +6,4 @@ class Contact(db.Model):
     name = db.Column(db.String(80))
     email = db.Column(db.String(80))
     phone_number = db.Column(db.Integer)
-    user = db.Column(db.Integer, db.ForeignKey('user.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))

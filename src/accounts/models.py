@@ -1,5 +1,6 @@
 from flask_login import UserMixin
 from src import db
+from src.contacts.models import Contact
 
 
 class User(db.Model, UserMixin):
