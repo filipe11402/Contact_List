@@ -8,4 +8,4 @@ class User(db.Model, UserMixin):
     first_name = db.Column(db.String(80))
     last_name = db.Column(db.String(80))
     password = db.Column(db.Integer)
-    contacts = db.relationship('Contacts')
+    contacts = db.relationship('Contact')

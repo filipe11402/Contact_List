@@ -25,5 +25,7 @@ def create_app():
 
 def create_database(app):
     if not path.exists('src/' + DB_NAME):
+        from .accounts.models import User
+        from .contacts.models import Contact
         db.create_all(app=app)
         print("DATABASE CREATED")
