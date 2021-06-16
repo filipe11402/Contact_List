@@ -25,6 +25,7 @@ def create_app():
 
 def create_database(app):
     if not path.exists('src/' + DB_NAME):
+        #used for when creating database it estabilishes the relationships
         from .accounts.models import User
         from .contacts.models import Contact
         db.create_all(app=app)

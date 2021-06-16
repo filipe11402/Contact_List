@@ -1,5 +1,7 @@
-from flask import Blueprint, render_template, request
+from flask import Blueprint, render_template, request, flash, url_for, redirect
 from .models import User
+from werkzeug.security import generate_password_hash, check_password_hash
+from src import db
 
 
 #defining blueprints for accounts related content
@@ -17,9 +19,17 @@ def register():
 
         user_check = User.query.filter_by(email=email).first()
         if user_check:
-            print("EXISTS")
+            flash("Email already beeing used", category='error')
+        elif len(first_name) < 4 or len(last_name) < 4:
+            flash("Too short, should be bigger than 4", category='error')
+        elif password1 != password2:
+            flash("Passwords dont match", category='error')
         else:
-            print("DOESNT EXIST")
+            new_user = User(email=email, first_name=first_name, last_name=last_name, password=generate_password_hash(password1, method='sha256'))
+            db.session.add(new_user)
+            db.session.commit()
+            flash("User created successfuly", category='success')
+            return redirect(url_for('accounts.login'))
 
     return render_template('accounts/register.html')
 
